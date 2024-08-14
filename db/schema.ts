@@ -1,4 +1,4 @@
-import { relations, sql } from "drizzle-orm";
+import { InferSelectModel, relations, sql } from "drizzle-orm";
 import { pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 
@@ -46,7 +46,7 @@ export const brandsToCategoriesGroups = pgTable("brands_to_categories_groups", {
 //     references: [categories.id],
 //   }),
 // }));
-
+export type CategoryType = InferSelectModel<typeof categories>;
 export const insertAccountSchema = createInsertSchema(accounts);
 export const insertCategorySchema = createInsertSchema(categories);
 export const insertBrandsToCategoriesGroupsSchema = createInsertSchema(
