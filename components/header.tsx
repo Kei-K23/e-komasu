@@ -15,7 +15,7 @@ export default function Header() {
   const pathname = usePathname();
   return (
     <header className="backdrop-blur border-b-[1.5px]">
-      <div className="mx-auto max-w-[1600px] flex items-center justify-between py-4">
+      <div className="mx-auto max-w-[1600px] flex items-center justify-between py-4 px-8">
         <Link href={"/"} className="flex items-center gap-2">
           <FcShop className="size-12" />
           <span className="text-xl font-bold">Komasu</span>

@@ -15,6 +15,13 @@ const brandId_3 = createId(); // Adidas
 const brandId_4 = createId(); // Nike
 const categoryId_1 = createId(); // Phone
 const categoryId_2 = createId(); // Shoes
+const categoryId_3 = createId(); // Shirt
+const categoryId_4 = createId(); // Dress
+const categoryId_5 = createId(); // Headphones
+const categoryId_6 = createId();
+const categoryId_7 = createId();
+const categoryId_8 = createId();
+const categoryId_9 = createId();
 
 const BRANDS = [
   {
@@ -53,7 +60,35 @@ const CATEGORIES = [
   },
   {
     id: categoryId_2,
-    name: "Shoes",
+    name: "Shoe",
+  },
+  {
+    id: categoryId_3,
+    name: "Shirt",
+  },
+  {
+    id: categoryId_4,
+    name: "Dress",
+  },
+  {
+    id: categoryId_5,
+    name: "HeadPhones",
+  },
+  {
+    id: categoryId_6,
+    name: "Gaming",
+  },
+  {
+    id: categoryId_7,
+    name: "Computer",
+  },
+  {
+    id: categoryId_8,
+    name: "Smart Watch",
+  },
+  {
+    id: categoryId_9,
+    name: "Watch",
   },
 ];
 
