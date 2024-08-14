@@ -14,7 +14,6 @@ export const accounts = pgTable("accounts", {
 export const categories = pgTable("categories", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
-  imageUrl: text("image_url"),
   createdAt: timestamp("created_at").default(sql`now()`),
   updatedAt: timestamp("updated_at").default(sql`now()`),
 });
@@ -27,6 +26,7 @@ export const brands = pgTable("brands", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description"),
+  imageUrl: text("image_url"),
   createdAt: timestamp("created_at").default(sql`now()`),
   updatedAt: timestamp("updated_at").default(sql`now()`),
 });

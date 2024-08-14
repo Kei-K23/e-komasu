@@ -22,28 +22,28 @@ const BRANDS = [
     name: "Samsung",
     description: "Samsung",
     imageUrl:
-      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723558017/e-komasu-bucket/xxzqg3fizuqhhhnyqgzx.png",
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723558017/e-komasu-bucket/products/xxzqg3fizuqhhhnyqgzx.png",
   },
   {
     id: brandId_2,
     name: "Apple",
     description: "Apple",
     imageUrl:
-      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723559367/e-komasu-bucket/a75r1imrih347zsuk7ze.png",
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723559367/e-komasu-bucket/products/a75r1imrih347zsuk7ze.png",
   },
   {
     id: brandId_3,
     name: "Adidas",
     description: "Adidas",
     imageUrl:
-      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723559407/e-komasu-bucket/i7t7gvqdvltoqf3tbal1.jpg",
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723559407/e-komasu-bucket/products/i7t7gvqdvltoqf3tbal1.jpg",
   },
   {
     id: brandId_4,
     name: "Nike",
     description: "Nike",
     imageUrl:
-      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723559440/e-komasu-bucket/waywjginflhq1ueahewi.png",
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723559440/e-komasu-bucket/products/waywjginflhq1ueahewi.png",
   },
 ];
 const CATEGORIES = [
@@ -79,9 +79,9 @@ const BRANDS_TO_CATEGORIES_GROUPS = [
 const main = async () => {
   try {
     // Reset database
+    await db.delete(brandsToCategoriesGroups).execute();
     await db.delete(categories).execute();
     await db.delete(brands).execute();
-    await db.delete(brandsToCategoriesGroups).execute();
     // Seed
     await db.insert(categories).values(CATEGORIES).execute();
     await db.insert(brands).values(BRANDS).execute();
