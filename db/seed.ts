@@ -131,6 +131,14 @@ const BRANDS_TO_CATEGORIES_GROUPS = [
     categoryId: categoryId_2,
     brandId: brandId_4,
   },
+  {
+    categoryId: categoryId_1,
+    brandId: brandId_5,
+  },
+  {
+    categoryId: categoryId_3,
+    brandId: brandId_6,
+  },
 ];
 
 const main = async () => {
