@@ -1,5 +1,6 @@
-import { InferSelectModel, sql } from "drizzle-orm";
+import { InferSelectModel, relations, sql } from "drizzle-orm";
 import {
+  boolean,
   integer,
   numeric,
   pgTable,
@@ -23,10 +24,6 @@ export const categories = pgTable("categories", {
   createdAt: timestamp("created_at").default(sql`now()`),
   updatedAt: timestamp("updated_at").default(sql`now()`),
 });
-
-// export const categoriesRelations = relations(categories, ({ many }) => ({
-//   brands: many(brands),
-// }));
 
 export const brands = pgTable("brands", {
   id: text("id").primaryKey(),
@@ -60,23 +57,34 @@ export const products = pgTable("products", {
   updatedAt: timestamp("updated_at").default(sql`now()`),
 });
 
+export const productsRelations = relations(products, ({ many }) => ({
+  availableProducts: many(availableProducts),
+}));
+
 export const availableProducts = pgTable("available_products", {
   id: text("id").primaryKey(),
   size: text("size").notNull(),
   color: text("color").notNull(),
+  isAvailable: boolean("is_available").default(true),
   productId: text("product_id").references(() => products.id),
   createdAt: timestamp("created_at").default(sql`now()`),
   updatedAt: timestamp("updated_at").default(sql`now()`),
 });
 
-// export const brandsRelations = relations(brands, ({ one }) => ({
-//   category: one(brands, {
-//     fields: [brands.id],
-//     references: [categories.id],
-//   }),
-// }));
+export const availableProductsRelations = relations(
+  availableProducts,
+  ({ one }) => ({
+    product: one(products, {
+      fields: [availableProducts.id],
+      references: [products.id],
+    }),
+  })
+);
+
 export type CategoryType = InferSelectModel<typeof categories>;
 export type BrandType = InferSelectModel<typeof brands>;
+export type ProductType = InferSelectModel<typeof products>;
+export type AvailableProductType = InferSelectModel<typeof availableProducts>;
 export const insertAccountSchema = createInsertSchema(accounts);
 export const insertCategorySchema = createInsertSchema(categories);
 export const insertBrandsToCategoriesGroupsSchema = createInsertSchema(
