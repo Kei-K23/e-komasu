@@ -18,8 +18,8 @@ export default function Header() {
   const pathname = usePathname();
   const { isLoaded, isSignedIn } = useAuth();
   return (
-    <header className="flex items-center backdrop-blur border-b-[1.5px] h-16">
-      <div className="flex-1 mx-auto max-w-[1600px] flex items-center justify-between px-8 gap-x-3">
+    <header className="flex items-center backdrop-blur border-b-[1.5px] h-16 fixed top-0 w-full z-20">
+      <div className="flex-1 mx-auto max-w-7xl flex items-center justify-between px-8 gap-x-3">
         <Link href={"/"} className="flex items-center gap-2">
           <FcShop className="size-10" />
           <span className="hidden md:block text-xl font-bold">Komasu</span>
@@ -40,11 +40,11 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-1">
-          <form className="hidden relative lg:flex items-center gap-3 w-[250px] border bg-neutral-200 rounded-lg">
-            <IoIosSearch className="absolute text-neutral-500 size-5 top-1/2 -translate-y-1/2 left-2" />
+          <form className="hidden relative lg:flex items-center gap-3 w-[250px] border bg-neutral-100 rounded-lg">
+            <IoIosSearch className="absolute size-5 top-1/2 -translate-y-1/2 left-2" />
             <input
               placeholder="What are you looking for?"
-              className="border-none outline-none flex-1 w-full h-full pl-10 py-[7px] bg-neutral-200 rounded-lg focus:outline-1 focus-visible:outline-2 focus-visible:outline-neutral-500 text-[15px]"
+              className="border-none outline-none flex-1 w-full h-full pl-10 py-[7px] bg-neutral-100 rounded-lg focus:outline-1 focus-visible:outline-2 focus-visible:outline-neutral-500 text-[15px]"
             />
           </form>
           <Button variant={"ghost"} size={"sm"} className="block lg:hidden">
@@ -60,7 +60,7 @@ export default function Header() {
             isSignedIn ? (
               <UserButton afterSignOutUrl="/" />
             ) : (
-              <User className="size-5 cursor-pointer transition hover:text-red-500" />
+              <User className="size-5 cursor-pointer transition hover:text-red-500 mx-3" />
             )
           ) : (
             <Loader2 className="size-5 animate-spin text-muted-foreground" />

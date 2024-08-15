@@ -25,7 +25,7 @@ export const getCategoryIcon = (name: string) => {
       return ImHeadphones;
     case "Gaming":
       return GiConsoleController;
-    case "Gaming":
+    case "Computer":
       return FaComputer;
     case "Smart Watch":
       return IoWatchSharp;

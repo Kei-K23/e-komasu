@@ -71,7 +71,7 @@
 
 @layer utilities {
   .section-container {
-    @apply mx-auto max-w-[1600px] px-8 py-20 md:py-24
+    @apply mx-auto max-w-7xl px-8 py-20 md:py-24
   }
 }
 
