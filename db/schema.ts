@@ -47,6 +47,7 @@ export const brandsToCategoriesGroups = pgTable("brands_to_categories_groups", {
 //   }),
 // }));
 export type CategoryType = InferSelectModel<typeof categories>;
+export type BrandType = InferSelectModel<typeof brands>;
 export const insertAccountSchema = createInsertSchema(accounts);
 export const insertCategorySchema = createInsertSchema(categories);
 export const insertBrandsToCategoriesGroupsSchema = createInsertSchema(
