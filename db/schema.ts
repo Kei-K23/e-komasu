@@ -35,6 +35,7 @@ export const brands = pgTable("brands", {
 });
 
 export const brandsToCategoriesGroups = pgTable("brands_to_categories_groups", {
+  id: text("id").primaryKey(),
   categoryId: text("category_id")
     .notNull()
     .references(() => categories.id),
@@ -42,6 +43,13 @@ export const brandsToCategoriesGroups = pgTable("brands_to_categories_groups", {
     .notNull()
     .references(() => brands.id),
 });
+
+export const brandsToCategoriesGroupsRelations = relations(
+  brandsToCategoriesGroups,
+  ({ many }) => ({
+    products: many(products),
+  })
+);
 
 export const products = pgTable("products", {
   id: text("id").primaryKey(),
@@ -53,12 +61,19 @@ export const products = pgTable("products", {
   imageUrl1: text("image_url_1"),
   imageUrl2: text("image_url_2"),
   imageUrl3: text("image_url_3"),
+  brandsToCategoriesId: text("brands_to_categories_id").references(
+    () => brandsToCategoriesGroups.id
+  ),
   createdAt: timestamp("created_at").default(sql`now()`),
   updatedAt: timestamp("updated_at").default(sql`now()`),
 });
 
-export const productsRelations = relations(products, ({ many }) => ({
+export const productsRelations = relations(products, ({ many, one }) => ({
   availableProducts: many(availableProducts),
+  brandsToCategoriesGroups: one(brandsToCategoriesGroups, {
+    fields: [products.brandsToCategoriesId],
+    references: [brandsToCategoriesGroups.id],
+  }),
 }));
 
 export const availableProducts = pgTable("available_products", {

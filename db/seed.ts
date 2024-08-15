@@ -141,6 +141,36 @@ const BRANDS_TO_CATEGORIES_GROUPS = [
   },
 ];
 
+const PRODUCTS = [
+  {
+    name: "IPhone-15",
+    description: "",
+    price: 1311,
+    quantity: 20,
+  },
+  {
+    name: "Nike Dunk High",
+    description: "",
+    price: 199,
+    quantity: 20,
+  },
+];
+
+const AVAILABLE_PRODUCTS = [
+  {
+    name: "IPhone-15",
+    description: "",
+    price: 1311,
+    quantity: 20,
+  },
+  {
+    name: "Nike Dunk High",
+    description: "",
+    price: 199,
+    quantity: 20,
+  },
+];
+
 const main = async () => {
   try {
     // Reset database
