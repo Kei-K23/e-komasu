@@ -1,13 +1,20 @@
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-export default function BrandBannerSwiper() {
+type BrandBannerSwiperProps = {
+  brandBannersData: {
+    bannerUrl: string | null;
+  }[];
+};
+export default function BrandBannerSwiper({
+  brandBannersData,
+}: BrandBannerSwiperProps) {
   return (
     <div className="section-container">
       <Swiper
@@ -23,27 +30,15 @@ export default function BrandBannerSwiper() {
         modules={[Autoplay, Pagination]}
         className="mySwiper border rounded-lg"
       >
-        <SwiperSlide>
-          <img
-            src={"/iphone_banner_slice.jpg"}
-            alt="iphone"
-            className="w-full h-[450px] rounded-lg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={"/iphone_banner_slice.jpg"}
-            alt="iphone"
-            className="w-full h-[450px]"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={"/iphone_banner_slice.jpg"}
-            alt="iphone"
-            className="w-full h-[450px]"
-          />
-        </SwiperSlide>
+        {brandBannersData?.map((banner, index) => (
+          <SwiperSlide key={banner.bannerUrl}>
+            <img
+              src={banner.bannerUrl!}
+              alt={`Banner image ${index}`}
+              className="w-full h-[450px] rounded-lg"
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
