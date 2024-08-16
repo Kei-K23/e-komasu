@@ -7,7 +7,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Button } from "../ui/button";
-import { ShoppingCart } from "lucide-react";
+import { Eye, Heart, ShoppingCart } from "lucide-react";
 
 type ProductSectionItemProps = {
   product: ProductType;
@@ -17,7 +17,15 @@ export default function ProductSectionItem({
 }: ProductSectionItemProps) {
   return (
     <Card className="w-[290px]">
-      <CardHeader className="p-0">
+      <CardHeader className="p-0 relative">
+        <div className="absolute top-2 right-2.5 z-10 flex items-center flex-col gap-y-2">
+          <Button size={"xsm"}>
+            <Heart className="size-[16px]" />
+          </Button>
+          <Button size={"xsm"}>
+            <Eye className="size-[16px]" />
+          </Button>
+        </div>
         <img
           src={product.imageUrl!}
           alt={`${product.name}'s image`}

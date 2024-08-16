@@ -31,14 +31,19 @@ const categoryId_6 = createId();
 const categoryId_7 = createId();
 const categoryId_8 = createId();
 const categoryId_9 = createId();
+const categoryId_10 = createId();
 const brandsToCategoriesId_1 = createId();
 const brandsToCategoriesId_2 = createId();
 const brandsToCategoriesId_3 = createId();
 const brandsToCategoriesId_4 = createId();
 const brandsToCategoriesId_5 = createId();
 const brandsToCategoriesId_6 = createId();
+const brandsToCategoriesId_7 = createId();
+const brandsToCategoriesId_8 = createId();
 const productId_1 = createId();
 const productId_2 = createId();
+const productId_3 = createId();
+const productId_4 = createId();
 
 const BRANDS = [
   {
@@ -135,6 +140,10 @@ const CATEGORIES = [
     id: categoryId_9,
     name: "Watch",
   },
+  {
+    id: categoryId_10,
+    name: "TV",
+  },
 ];
 
 const BRANDS_TO_CATEGORIES_GROUPS = [
@@ -167,6 +176,11 @@ const BRANDS_TO_CATEGORIES_GROUPS = [
     id: brandsToCategoriesId_6,
     categoryId: categoryId_3,
     brandId: brandId_6,
+  },
+  {
+    id: brandsToCategoriesId_7,
+    categoryId: categoryId_10,
+    brandId: brandId_5,
   },
 ];
 
@@ -202,6 +216,34 @@ Available in a variety of eye-catching colorways, the Nike Dunk High shoes let y
     imageUrl1:
       "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723707902/e-komasu-bucket/products/chcilxfspl5s5hr5d2md.png",
     brandsToCategoriesId: brandsToCategoriesId_4,
+  },
+  {
+    id: productId_3,
+    name: "Sony Bravia TV",
+    description: `Experience stunning picture quality and immersive entertainment with the Sony Bravia TV. Powered by the latest X1 Processor and featuring 4K HDR technology, this smart TV delivers vibrant colors, deep contrasts, and exceptional clarity. With advanced features like Motionflow XR for smooth action scenes and Triluminos Display for a wider color spectrum, every viewing experience feels more lifelike.
+
+Equipped with Google TV, you can easily stream your favorite content from popular platforms, while built-in Google Assistant allows hands-free control. The slim, sleek design enhances any living space, and Dolby Atmos sound provides a cinematic audio experience. Whether you're watching movies, sports, or playing video games, Sony Bravia TV redefines home entertainment.
+`,
+    price: 500,
+    quantity: 10,
+    imageUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723796021/e-komasu-bucket/products/msi91nnodca6v6oocnje.jpg",
+    brandsToCategoriesId: brandsToCategoriesId_7,
+  },
+  {
+    id: productId_4,
+    name: "Samsung Galaxy S24",
+    description: `Introducing the Samsung Galaxy S24, the next-generation smartphone designed to elevate your digital experience. Featuring a stunning 6.1-inch Dynamic AMOLED 2X display with ultra-high resolution and a 120Hz refresh rate, every image and video is incredibly sharp, smooth, and vibrant.
+
+Powered by the latest Snapdragon 8 Gen 3 processor and equipped with up to 16GB of RAM, the Galaxy S24 ensures lightning-fast performance, even during intensive multitasking and gaming. Capture every moment in detail with the 50MP triple-camera system, which includes advanced AI features for pro-level photography in any lighting condition.
+
+The Galaxy S24 also boasts a 5000mAh battery with fast charging capabilities, ensuring you stay connected throughout the day. With 5G connectivity, enhanced security features like Samsung Knox, and a sleek, durable design, the Galaxy S24 is the ultimate companion for work, play, and everything in between.
+`,
+    price: 799,
+    quantity: 30,
+    imageUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723796022/e-komasu-bucket/products/xfx92p7lmvl8ctivkiko.jpg",
+    brandsToCategoriesId: brandsToCategoriesId_1,
   },
 ];
 
@@ -323,6 +365,16 @@ const AVAILABLE_PRODUCTS_COLORS = [
     id: createId(),
     color: "#1E5B42",
     productId: productId_2,
+  },
+  {
+    id: createId(),
+    color: "#9E968D",
+    productId: productId_4,
+  },
+  {
+    id: createId(),
+    color: "#444241",
+    productId: productId_4,
   },
 ];
 

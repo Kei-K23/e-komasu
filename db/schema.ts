@@ -1,6 +1,7 @@
 import { InferSelectModel, relations, sql } from "drizzle-orm";
 import {
   boolean,
+  decimal,
   integer,
   pgTable,
   text,
