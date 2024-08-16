@@ -1,5 +1,6 @@
 import BrandsSection from "@/components/main/brands-section";
 import CategoriesSection from "@/components/main/categories-section";
+import NewArrivalSection from "@/components/main/new-arrival-section";
 import ProductsSection from "@/components/main/products-section";
 import BrandBannerSwiper from "@/components/swipers/brand-banner-swiper";
 import HeroBannerSwiper from "@/components/swipers/hero-banner-swiper";
@@ -29,6 +30,8 @@ export default async function Home() {
       <BrandBannerSwiper brandBannersData={brandBannersData} />
       <Separator className="mx-auto max-w-7xl px-8" />
       <ProductsSection data={productsData} />
+      <Separator className="mx-auto max-w-7xl px-8" />
+      <NewArrivalSection data={productsData} />
     </div>
   );
 }

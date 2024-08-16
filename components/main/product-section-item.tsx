@@ -29,7 +29,7 @@ export default function ProductSectionItem({
         <img
           src={product.imageUrl!}
           alt={`${product.name}'s image`}
-          className="w-full h-[180px]"
+          className="w-full h-[180px] p-0"
         />
       </CardHeader>
       <CardContent className="p-4">
