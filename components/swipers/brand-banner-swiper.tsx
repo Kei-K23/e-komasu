@@ -7,9 +7,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-export default function HeroBannerSwiper() {
+export default function BrandBannerSwiper() {
   return (
-    <div>
+    <div className="section-container">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -20,15 +20,14 @@ export default function HeroBannerSwiper() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        modules={[Autoplay, Pagination]}
+        className="mySwiper border rounded-lg"
       >
         <SwiperSlide>
           <img
             src={"/iphone_banner_slice.jpg"}
             alt="iphone"
-            className="w-full h-[450px]"
+            className="w-full h-[450px] rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>

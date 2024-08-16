@@ -2,7 +2,6 @@ import { InferSelectModel, relations, sql } from "drizzle-orm";
 import {
   boolean,
   integer,
-  numeric,
   pgTable,
   text,
   timestamp,
@@ -30,6 +29,7 @@ export const brands = pgTable("brands", {
   name: text("name").notNull(),
   description: text("description"),
   imageUrl: text("image_url"),
+  bannerUrl: text("banner_url"),
   createdAt: timestamp("created_at").default(sql`now()`),
   updatedAt: timestamp("updated_at").default(sql`now()`),
 });

@@ -22,6 +22,20 @@
       "when": 1723560394729,
       "tag": "0002_slimy_multiple_man",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1723784069905,
+      "tag": "0003_jazzy_peter_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1723790842228,
+      "tag": "0004_shallow_naoko",
+      "breakpoints": true
     }
   ]
 }

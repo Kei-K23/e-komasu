@@ -15,7 +15,7 @@ export default function BrandsSection({ data }: BrandsSectionProps) {
       </div>
 
       <ScrollArea className="w-full mt-10">
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 pb-2">
           {data.map((brand) => (
             <BrandSectionItem key={brand.id} brand={brand} />
           ))}

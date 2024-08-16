@@ -56,6 +56,8 @@ const BRANDS = [
       "Apple is a global leader in consumer electronics and technology innovation, known for its premium-quality products that blend sleek design with cutting-edge functionality. Renowned for the iPhone, Mac, iPad, and Apple Watch, Apple emphasizes seamless user experiences across its ecosystem of devices and services, driven by a commitment to privacy, security, and sustainability.",
     imageUrl:
       "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723702541/e-komasu-bucket/brands/jssgznf5a0e8jxel6ona.png",
+    bannerUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723785126/e-komasu-bucket/brands/xhq0aidfdtfh5j3yvmxm.png",
   },
   {
     id: brandId_3,
@@ -64,6 +66,8 @@ const BRANDS = [
       "Adidas is a leading sportswear brand celebrated for its performance-driven products and streetwear appeal. Rooted in sports, the brand combines innovation, comfort, and style to create footwear, apparel, and accessories that inspire athletes and fashion enthusiasts alike. Adidas is committed to sustainability and improving lives through sport.",
     imageUrl:
       "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723702541/e-komasu-bucket/brands/bfw3zb0ueyawtjuvyq7u.jpg",
+    bannerUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723785388/e-komasu-bucket/brands/kermmqmzbfoejoqxwxee.png",
   },
   {
     id: brandId_4,
@@ -72,6 +76,8 @@ const BRANDS = [
       "Nike is a global icon in athletic footwear, apparel, and equipment, recognized for its powerful brand identity and dedication to performance, innovation, and style. With its famous 'Just Do It' slogan, Nike motivates athletes of all levels, blending cutting-edge technology with timeless design while championing sustainability and social responsibility.",
     imageUrl:
       "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723702595/e-komasu-bucket/brands/c2oszozgajnygiunhyom.png",
+    bannerUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723785483/e-komasu-bucket/brands/afwe2ev2ovioghiy8m3y.jpg",
   },
   {
     id: brandId_5,
@@ -88,6 +94,8 @@ const BRANDS = [
       "Louis Vuitton is a luxury fashion house synonymous with elegance, craftsmanship, and timeless style. Known for its iconic monogrammed leather goods, the brand offers a wide range of high-end products, including handbags, ready-to-wear, shoes, accessories, and more. Louis Vuitton embodies sophistication and exclusivity, making it a symbol of prestige and unparalleled quality in the world of fashion.",
     imageUrl:
       "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723704000/e-komasu-bucket/brands/egos1ut24dmog2ny8chp.png",
+    bannerUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723785386/e-komasu-bucket/brands/znj4xx80e091zxeysyll.jpg",
   },
 ];
 const CATEGORIES = [
@@ -166,17 +174,33 @@ const PRODUCTS = [
   {
     id: productId_1,
     name: "IPhone-15",
-    description: "",
+    description: `The iPhone 15 is the latest innovation from Apple, combining sleek design with powerful performance. Featuring a stunning 6.1-inch Super Retina XDR display, the iPhone 15 offers vibrant colors and deep contrasts for an immersive visual experience. Powered by the A16 Bionic chip, it delivers lightning-fast performance and advanced machine learning capabilities for seamless multitasking, gaming, and more.
+
+With a refined camera system, the iPhone 15 captures stunning photos and videos in any lighting condition. The enhanced Night Mode, ProRAW, and Cinematic Mode ensure every shot is professional-grade. The iPhone 15 also introduces even faster 5G connectivity and improved battery life, keeping you connected and productive all day long.
+
+Designed with sustainability in mind, the iPhone 15 is made from recycled materials, contributing to Apple’s ongoing environmental efforts. Available in a range of vibrant colors, the iPhone 15 offers the perfect blend of style, technology, and eco-consciousness.
+`,
     price: 1311,
     quantity: 20,
     brandsToCategoriesId: brandsToCategoriesId_2,
+    imageUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723707919/e-komasu-bucket/products/xtcdlljpoo6jfbnrb6el.png",
   },
   {
     id: productId_2,
     name: "Nike Dunk High",
-    description: "",
+    description: `The Nike Dunk High shoes are a timeless classic that combine retro style with modern performance. Inspired by the iconic basketball silhouette from the '80s, these high-top sneakers offer bold style and all-day comfort. Crafted with premium leather and textile uppers, the Nike Dunk High delivers a durable fit and a sleek finish that stands out on and off the court.
+
+Designed for both streetwear and sports, the Nike Dunk High features a padded collar and cushioned midsole for superior support and comfort. The rubber outsole with a classic pivot circle provides excellent traction, whether you're making moves on the court or stepping out in style.
+
+Available in a variety of eye-catching colorways, the Nike Dunk High shoes let you express your personality while enjoying the perfect blend of heritage design and contemporary fashion. Elevate your sneaker game with the Nike Dunk High, the ultimate fusion of athletic performance and iconic style.
+`,
     price: 199,
     quantity: 20,
+    imageUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723707903/e-komasu-bucket/products/sndnpgyffdbsuohlndnf.png",
+    imageUrl1:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723707902/e-komasu-bucket/products/chcilxfspl5s5hr5d2md.png",
     brandsToCategoriesId: brandsToCategoriesId_4,
   },
 ];
@@ -290,17 +314,27 @@ const AVAILABLE_PRODUCTS_COLORS = [
     color: "#494A4B",
     productId: productId_1,
   },
+  {
+    id: createId(),
+    color: "#151518",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    color: "#1E5B42",
+    productId: productId_2,
+  },
 ];
 
 const main = async () => {
   try {
     // Reset database
+    await db.delete(availableProductsColor).execute();
+    await db.delete(availableProductsSize).execute();
+    await db.delete(products).execute();
     await db.delete(brandsToCategoriesGroups).execute();
     await db.delete(categories).execute();
     await db.delete(brands).execute();
-    await db.delete(products).execute();
-    await db.delete(availableProductsColor).execute();
-    await db.delete(availableProductsSize).execute();
     // Seed
     await db.insert(categories).values(CATEGORIES).execute();
     await db.insert(brands).values(BRANDS).execute();

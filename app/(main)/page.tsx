@@ -1,5 +1,6 @@
 import BrandsSection from "@/components/main/brands-section";
 import CategoriesSection from "@/components/main/categories-section";
+import BrandBannerSwiper from "@/components/swipers/brand-banner-swiper";
 import HeroBannerSwiper from "@/components/swipers/hero-banner-swiper";
 import { Separator } from "@/components/ui/separator";
 import { getAllBrands } from "@/queries/brand-query";
@@ -20,6 +21,8 @@ export default async function Home() {
       <CategoriesSection data={categoriesData} />
       <Separator className="mx-auto max-w-7xl px-8" />
       <BrandsSection data={brandsData} />
+      <Separator className="mx-auto max-w-7xl px-8" />
+      <BrandBannerSwiper />
     </div>
   );
 }

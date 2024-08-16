@@ -1,0 +1,1 @@
+ALTER TABLE "brands" ADD COLUMN "banner_url" text;
