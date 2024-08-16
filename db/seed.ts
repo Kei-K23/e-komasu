@@ -1,7 +1,14 @@
 import { config } from "dotenv";
 import { drizzle } from "drizzle-orm/neon-http";
 import { neon } from "@neondatabase/serverless";
-import { categories, brands, brandsToCategoriesGroups } from "@/db/schema";
+import {
+  categories,
+  brands,
+  brandsToCategoriesGroups,
+  products,
+  availableProductsColor,
+  availableProductsSize,
+} from "@/db/schema";
 import { createId } from "@paralleldrive/cuid2";
 
 config({ path: ".env.local" });
@@ -24,6 +31,14 @@ const categoryId_6 = createId();
 const categoryId_7 = createId();
 const categoryId_8 = createId();
 const categoryId_9 = createId();
+const brandsToCategoriesId_1 = createId();
+const brandsToCategoriesId_2 = createId();
+const brandsToCategoriesId_3 = createId();
+const brandsToCategoriesId_4 = createId();
+const brandsToCategoriesId_5 = createId();
+const brandsToCategoriesId_6 = createId();
+const productId_1 = createId();
+const productId_2 = createId();
 
 const BRANDS = [
   {
@@ -116,26 +131,32 @@ const CATEGORIES = [
 
 const BRANDS_TO_CATEGORIES_GROUPS = [
   {
+    id: brandsToCategoriesId_1,
     categoryId: categoryId_1,
     brandId: brandId_1,
   },
   {
+    id: brandsToCategoriesId_2,
     categoryId: categoryId_1,
     brandId: brandId_2,
   },
   {
+    id: brandsToCategoriesId_3,
     categoryId: categoryId_2,
     brandId: brandId_3,
   },
   {
+    id: brandsToCategoriesId_4,
     categoryId: categoryId_2,
     brandId: brandId_4,
   },
   {
+    id: brandsToCategoriesId_5,
     categoryId: categoryId_1,
     brandId: brandId_5,
   },
   {
+    id: brandsToCategoriesId_6,
     categoryId: categoryId_3,
     brandId: brandId_6,
   },
@@ -143,31 +164,131 @@ const BRANDS_TO_CATEGORIES_GROUPS = [
 
 const PRODUCTS = [
   {
+    id: productId_1,
     name: "IPhone-15",
     description: "",
     price: 1311,
     quantity: 20,
+    brandsToCategoriesId: brandsToCategoriesId_2,
   },
   {
+    id: productId_2,
     name: "Nike Dunk High",
     description: "",
     price: 199,
     quantity: 20,
+    brandsToCategoriesId: brandsToCategoriesId_4,
   },
 ];
 
-const AVAILABLE_PRODUCTS = [
+const AVAILABLE_PRODUCTS_SIZES = [
   {
-    name: "IPhone-15",
-    description: "",
-    price: 1311,
-    quantity: 20,
+    id: createId(),
+    size: '6.1"',
+    productId: productId_1,
   },
   {
-    name: "Nike Dunk High",
-    description: "",
-    price: 199,
-    quantity: 20,
+    id: createId(),
+    size: '6.7"',
+    productId: productId_1,
+  },
+  {
+    id: createId(),
+    size: "US 7",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 7.5",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 8",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 8.5",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 9",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 9.5",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 10",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 10.5",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 11",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 11.5",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 12",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 12.5",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 13",
+    productId: productId_2,
+  },
+  {
+    id: createId(),
+    size: "US 13.5",
+    productId: productId_2,
+  },
+];
+
+const AVAILABLE_PRODUCTS_COLORS = [
+  {
+    id: createId(),
+    color: "#EED4D7",
+    productId: productId_1,
+  },
+  {
+    id: createId(),
+    color: "#EBE6C7",
+    productId: productId_1,
+  },
+  {
+    id: createId(),
+    color: "#C6D3C4",
+    productId: productId_1,
+  },
+  {
+    id: createId(),
+    color: "#D1D9DD",
+    productId: productId_1,
+  },
+  {
+    id: createId(),
+    color: "#494A4B",
+    productId: productId_1,
   },
 ];
 
@@ -177,12 +298,24 @@ const main = async () => {
     await db.delete(brandsToCategoriesGroups).execute();
     await db.delete(categories).execute();
     await db.delete(brands).execute();
+    await db.delete(products).execute();
+    await db.delete(availableProductsColor).execute();
+    await db.delete(availableProductsSize).execute();
     // Seed
     await db.insert(categories).values(CATEGORIES).execute();
     await db.insert(brands).values(BRANDS).execute();
     await db
       .insert(brandsToCategoriesGroups)
       .values(BRANDS_TO_CATEGORIES_GROUPS)
+      .execute();
+    await db.insert(products).values(PRODUCTS).execute();
+    await db
+      .insert(availableProductsColor)
+      .values(AVAILABLE_PRODUCTS_COLORS)
+      .execute();
+    await db
+      .insert(availableProductsSize)
+      .values(AVAILABLE_PRODUCTS_SIZES)
       .execute();
 
     console.log("Successfully seeded the database");

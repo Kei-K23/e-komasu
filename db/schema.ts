@@ -54,7 +54,7 @@ export const brandsToCategoriesGroupsRelations = relations(
 export const products = pgTable("products", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
-  price: numeric("price").notNull(),
+  price: integer("price").notNull(),
   quantity: integer("quantity").notNull(),
   description: text("description"),
   imageUrl: text("image_url"),
@@ -69,28 +69,43 @@ export const products = pgTable("products", {
 });
 
 export const productsRelations = relations(products, ({ many, one }) => ({
-  availableProducts: many(availableProducts),
+  availableProductSizes: many(availableProductsSize),
+  availableProductColors: many(availableProductsColor),
   brandsToCategoriesGroups: one(brandsToCategoriesGroups, {
     fields: [products.brandsToCategoriesId],
     references: [brandsToCategoriesGroups.id],
   }),
 }));
 
-export const availableProducts = pgTable("available_products", {
+export const availableProductsSize = pgTable("available_product_sizes", {
   id: text("id").primaryKey(),
   size: text("size").notNull(),
+  isAvailable: boolean("is_available").default(true),
+  productId: text("product_id").references(() => products.id),
+});
+
+export const availableProductsSizeRelations = relations(
+  availableProductsSize,
+  ({ one }) => ({
+    product: one(products, {
+      fields: [availableProductsSize.id],
+      references: [products.id],
+    }),
+  })
+);
+
+export const availableProductsColor = pgTable("available_product_colors", {
+  id: text("id").primaryKey(),
   color: text("color").notNull(),
   isAvailable: boolean("is_available").default(true),
   productId: text("product_id").references(() => products.id),
-  createdAt: timestamp("created_at").default(sql`now()`),
-  updatedAt: timestamp("updated_at").default(sql`now()`),
 });
 
-export const availableProductsRelations = relations(
-  availableProducts,
+export const availableProductsColorRelations = relations(
+  availableProductsColor,
   ({ one }) => ({
     product: one(products, {
-      fields: [availableProducts.id],
+      fields: [availableProductsColor.id],
       references: [products.id],
     }),
   })
@@ -99,7 +114,12 @@ export const availableProductsRelations = relations(
 export type CategoryType = InferSelectModel<typeof categories>;
 export type BrandType = InferSelectModel<typeof brands>;
 export type ProductType = InferSelectModel<typeof products>;
-export type AvailableProductType = InferSelectModel<typeof availableProducts>;
+export type AvailableProductSizesType = InferSelectModel<
+  typeof availableProductsSize
+>;
+export type AvailableProductColorsType = InferSelectModel<
+  typeof availableProductsColor
+>;
 export const insertAccountSchema = createInsertSchema(accounts);
 export const insertCategorySchema = createInsertSchema(categories);
 export const insertBrandsToCategoriesGroupsSchema = createInsertSchema(
