@@ -35,3 +35,15 @@ export const getCategoryIcon = (name: string) => {
       return MdOutlineQuestionMark;
   }
 };
+
+export const isDateInPrevious7Days = (date: Date) => {
+  const givenDate = new Date(date); // Convert input to Date object
+  const currentDate = new Date(); // Get the current date
+  const sevenDaysAgo = new Date();
+
+  // Set sevenDaysAgo to 7 days before the current date
+  sevenDaysAgo.setDate(currentDate.getDate() - 7);
+
+  // Compare the given date with the current date and seven days ago
+  return givenDate >= sevenDaysAgo && givenDate <= currentDate;
+};

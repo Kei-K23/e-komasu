@@ -7,7 +7,7 @@ import HeroBannerSwiper from "@/components/swipers/hero-banner-swiper";
 import { Separator } from "@/components/ui/separator";
 import { getAllBrands, getBrandBanners } from "@/queries/brand-query";
 import { getAllCategories } from "@/queries/category-query";
-import { getAllProducts } from "@/queries/product-query";
+import { getAllProducts, getNewArrivalProducts } from "@/queries/product-query";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export default async function Home() {
   const brandsData = await getAllBrands(6);
   const productsData = await getAllProducts(6);
   const brandBannersData = await getBrandBanners();
+  const newArrivalProducts = await getNewArrivalProducts();
 
   return (
     <div className="mt-16">
@@ -31,7 +32,7 @@ export default async function Home() {
       <Separator className="mx-auto max-w-7xl px-8" />
       <ProductsSection data={productsData} />
       <Separator className="mx-auto max-w-7xl px-8" />
-      <NewArrivalSection data={productsData} />
+      <NewArrivalSection data={newArrivalProducts} />
     </div>
   );
 }

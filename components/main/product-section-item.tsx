@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { Eye, Heart, ShoppingCart } from "lucide-react";
+import { Badge } from "../ui/badge";
+import { isDateInPrevious7Days } from "@/lib/helper";
 
 type ProductSectionItemProps = {
   product: ProductType;
@@ -15,9 +17,16 @@ type ProductSectionItemProps = {
 export default function ProductSectionItem({
   product,
 }: ProductSectionItemProps) {
+  const isNewProduct = isDateInPrevious7Days(product.createdAt!);
+
   return (
     <Card className="w-[290px]">
       <CardHeader className="p-0 relative">
+        {isNewProduct && (
+          <Badge variant={"primary"} className="absolute rounded-l-none">
+            New
+          </Badge>
+        )}
         <div className="absolute top-2 right-2.5 z-10 flex items-center flex-col gap-y-2">
           <Button size={"xsm"}>
             <Heart className="size-[16px]" />
