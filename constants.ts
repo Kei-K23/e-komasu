@@ -29,3 +29,27 @@ export const NAVIGATION_LINKS = [
     icon: IoPeopleSharp,
   },
 ];
+
+export const QUICK_NAVIGATION_LINKS = [
+  {
+    name: "Privacy Policy",
+    link: "/privacy&policy",
+    icon: IoHomeOutline,
+  },
+  {
+    name: "Terms Of Use",
+    link: "/terms&use",
+  },
+  {
+    name: "Categories",
+    link: "/categories",
+  },
+  {
+    name: "FAQ",
+    link: "/faq",
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+  },
+];

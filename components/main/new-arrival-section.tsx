@@ -14,7 +14,7 @@ export default function NewArrivalSection({ data }: NewArrivalSectionProps) {
       </div>
       <div className="grid grid-cols-12 gap-4 mt-10">
         {/* Large Image */}
-        <div className="col-span-12 md:col-span-6 row-span-1 lg:row-span-2 object-cover w-full h-[316px] lg:h-[616px] border rounded-md overflow-hidden relative">
+        <div className="col-span-12 md:col-span-6 row-span-1 lg:row-span-2 object-cover w-full h-[330px] lg:h-[616px] border rounded-md overflow-hidden relative">
           <img
             src={data[0].imageUrl!}
             alt="PlayStation 5"
@@ -31,7 +31,7 @@ export default function NewArrivalSection({ data }: NewArrivalSectionProps) {
         </div>
 
         {/* Top Right Image */}
-        <div className="col-span-12 md:col-span-6 object-cover w-full h-[316px] lg:h-[300px] border rounded-md overflow-hidden relative">
+        <div className="col-span-12 md:col-span-6 object-cover w-full h-[330px] lg:h-[300px] border rounded-md overflow-hidden relative">
           <img
             src={data[1].imageUrl!}
             alt="Women's Collections"
@@ -48,7 +48,7 @@ export default function NewArrivalSection({ data }: NewArrivalSectionProps) {
         </div>
 
         {/* Bottom Right - First Image */}
-        <div className="col-span-12 md:col-span-6 lg:col-span-3 object-cover w-full h-[316px] lg:h-[300px] border rounded-md overflow-hidden relative">
+        <div className="col-span-12 md:col-span-6 lg:col-span-3 object-cover w-full h-[330px] lg:h-[300px] border rounded-md overflow-hidden relative">
           <img
             src={data[2].imageUrl!}
             alt="Speakers"
@@ -65,7 +65,7 @@ export default function NewArrivalSection({ data }: NewArrivalSectionProps) {
         </div>
 
         {/* Bottom Right - Second Image */}
-        <div className="col-span-12 md:col-span-6 lg:col-span-3 object-cover w-full h-[316px] lg:h-[300px] border rounded-md overflow-hidden relative">
+        <div className="col-span-12 md:col-span-6 lg:col-span-3 object-cover w-full h-[330px] lg:h-[300px] border rounded-md overflow-hidden relative">
           <img
             src={data[3].imageUrl!}
             alt="Perfume"
