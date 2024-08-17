@@ -42,7 +42,7 @@ export default function ProductSectionItem({
         />
       </CardHeader>
       <CardContent className="p-4">
-        <h2 className="text-xl font-bold mb-3">{product.name}</h2>
+        <h2 className="text-xl font-bold mb-3 line-clamp-2">{product.name}</h2>
         <div className="my-2">
           <span className="text-rose-500 font-bold">$ {product.price}</span>
         </div>

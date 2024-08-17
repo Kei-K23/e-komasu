@@ -44,6 +44,7 @@ const productId_1 = createId();
 const productId_2 = createId();
 const productId_3 = createId();
 const productId_4 = createId();
+const productId_5 = createId();
 
 const BRANDS = [
   {
@@ -182,6 +183,11 @@ const BRANDS_TO_CATEGORIES_GROUPS = [
     categoryId: categoryId_10,
     brandId: brandId_5,
   },
+  {
+    id: brandsToCategoriesId_8,
+    categoryId: categoryId_10,
+    brandId: brandId_1,
+  },
 ];
 
 const PRODUCTS = [
@@ -244,6 +250,21 @@ The Galaxy S24 also boasts a 5000mAh battery with fast charging capabilities, en
     imageUrl:
       "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723796022/e-komasu-bucket/products/xfx92p7lmvl8ctivkiko.jpg",
     brandsToCategoriesId: brandsToCategoriesId_1,
+  },
+  {
+    id: productId_5,
+    name: "Samsung Smart TV Monitor M7 M70D UHD",
+    description: `Experience entertainment and productivity like never before with the Samsung Smart TV Monitor M7 (M70D) UHD. This all-in-one solution combines the power of a UHD monitor with the convenience of a Smart TV, making it perfect for work, play, and everything in between. With stunning 4K Ultra HD resolution, the M7 delivers crystal-clear visuals that bring your content to life, whether you're streaming your favorite shows, gaming, or working on detailed projects.
+
+The M7's built-in Smart Hub gives you instant access to popular streaming services like Netflix, YouTube, and more without needing a separate device. Plus, with Wireless DeX, you can seamlessly transform your phone into a full PC experience right on your monitor. Its sleek design, ultra-slim bezels, and versatile connectivity options, including USB-C, HDMI, and Bluetooth, make the Samsung Smart TV Monitor M7 a perfect addition to any modern workspace or home setup.
+
+Complete with adaptive picture technology, built-in speakers, and support for voice assistants like Alexa and Bixby, the M7 ensures a superior viewing experience in any lighting condition. Whether you're working remotely or enjoying leisure time, the Samsung Smart TV Monitor M7 offers the perfect blend of functionality and entertainment.
+`,
+    price: 798,
+    quantity: 50,
+    imageUrl:
+      "https://res.cloudinary.com/dfozzq8m5/image/upload/v1723906832/e-komasu-bucket/products/ecgk4hdsxvo8p5lmzcj8.jpg",
+    brandsToCategoriesId: brandsToCategoriesId_8,
   },
 ];
 

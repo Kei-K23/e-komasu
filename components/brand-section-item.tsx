@@ -6,7 +6,9 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type BrandSectionItemProps = {
   brand: BrandType;
@@ -28,7 +30,16 @@ export default function BrandSectionItem({ brand }: BrandSectionItemProps) {
         </p>
       </CardContent>
       <CardFooter className="p-4">
-        <Button>View Detail</Button>
+        <Link
+          href={`/brands/${brand.id}`}
+          className={cn(
+            buttonVariants({
+              variant: "default",
+            })
+          )}
+        >
+          View Detail
+        </Link>
       </CardFooter>
     </Card>
   );

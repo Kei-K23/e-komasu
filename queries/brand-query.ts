@@ -1,6 +1,6 @@
 import { db } from "@/db/drizzle";
-import { brands } from "@/db/schema";
-import { desc, isNotNull } from "drizzle-orm";
+import { brands, brandsToCategoriesGroups, categories } from "@/db/schema";
+import { desc, eq, inArray, isNotNull } from "drizzle-orm";
 
 export const getAllBrands = async (limit?: number) => {
   // TODO: Check order by
@@ -20,7 +20,6 @@ export const getAllBrands = async (limit?: number) => {
 };
 
 export const getBrandBanners = async () => {
-  // TODO: Check order by
   try {
     return await db
       .select({ bannerUrl: brands.bannerUrl })
@@ -32,3 +31,31 @@ export const getBrandBanners = async () => {
     throw new Error(e);
   }
 };
+
+// export const getBrandDetailById = async (brandId: string) => {
+//   try {
+//     const [brand] = await db
+//       .select()
+//       .from(brands)
+//       .where(eq(brands.id, brandId))
+//       .orderBy(desc(brands.createdAt));
+
+//     const brandsToCategoriesGroupsData = await db
+//       .select()
+//       .from(brandsToCategoriesGroups)
+//       .where(eq(brandsToCategoriesGroups.brandId, brand.id));
+
+//     // Get categories
+//     const categoriesData = await db
+//       .select()
+//       .from(categories)
+//       .where(
+//         inArray(
+//           categories.id,
+//           brandsToCategoriesGroupsData.map((btc) => btc.categoryId)
+//         )
+//       );
+//   } catch (e: any) {
+//     throw new Error(e);
+//   }
+// };
