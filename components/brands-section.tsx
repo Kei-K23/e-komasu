@@ -1,9 +1,11 @@
 import { BrandType } from "@/db/schema";
 import React from "react";
 import SectionHeader from "./section-header";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import BrandSectionItem from "./brand-section-item";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type BrandsSectionProps = { data: BrandType[] };
 export default function BrandsSection({ data }: BrandsSectionProps) {
@@ -20,9 +22,17 @@ export default function BrandsSection({ data }: BrandsSectionProps) {
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
       <div className="flex justify-center items-center mt-8">
-        <Button variant={"primary"} className="text-[16px] md:text-lg">
+        <Link
+          href={"/brands"}
+          className={cn(
+            "text-[16px] md:text-lg",
+            buttonVariants({
+              variant: "primary",
+            })
+          )}
+        >
           View All Brands
-        </Button>
+        </Link>
       </div>
     </section>
   );

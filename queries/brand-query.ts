@@ -1,6 +1,6 @@
 import { db } from "@/db/drizzle";
 import { brands } from "@/db/schema";
-import { asc, isNotNull } from "drizzle-orm";
+import { desc, isNotNull } from "drizzle-orm";
 
 export const getAllBrands = async (limit?: number) => {
   // TODO: Check order by
@@ -10,9 +10,9 @@ export const getAllBrands = async (limit?: number) => {
         .select()
         .from(brands)
         .limit(limit)
-        .orderBy(asc(brands.createdAt));
+        .orderBy(desc(brands.createdAt));
     } else {
-      return await db.select().from(brands).orderBy(asc(brands.createdAt));
+      return await db.select().from(brands).orderBy(desc(brands.createdAt));
     }
   } catch (e: any) {
     throw new Error(e);
@@ -27,7 +27,7 @@ export const getBrandBanners = async () => {
       .from(brands)
       .where(isNotNull(brands.bannerUrl))
       .limit(5)
-      .orderBy(asc(brands.createdAt));
+      .orderBy(desc(brands.createdAt));
   } catch (e: any) {
     throw new Error(e);
   }

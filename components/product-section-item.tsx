@@ -20,7 +20,7 @@ export default function ProductSectionItem({
   const isNewProduct = isDateInPrevious7Days(product.createdAt!);
 
   return (
-    <Card className="w-[290px]">
+    <Card className="w-[290px] mx-auto">
       <CardHeader className="p-0 relative">
         {isNewProduct && (
           <Badge variant={"primary"} className="absolute rounded-l-none">

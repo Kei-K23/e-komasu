@@ -2,7 +2,9 @@ import { CategoryType } from "@/db/schema";
 import React from "react";
 import SectionHeader from "@/components/section-header";
 import CategoriesSectionItem from "@/components/categories-section-item";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type CategoriesSectionProps = { data: CategoryType[] };
 export default function CategoriesSection({ data }: CategoriesSectionProps) {
@@ -15,9 +17,17 @@ export default function CategoriesSection({ data }: CategoriesSectionProps) {
         ))}
       </div>
       <div className="flex justify-center items-center mt-8">
-        <Button variant={"primary"} className="text-[16px] md:text-lg">
+        <Link
+          href={"/categories"}
+          className={cn(
+            "text-[16px] md:text-lg",
+            buttonVariants({
+              variant: "primary",
+            })
+          )}
+        >
           View All Categories
-        </Button>
+        </Link>
       </div>
     </section>
   );

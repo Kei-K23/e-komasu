@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default async function Home() {
   const categoriesData = await getAllCategories(6);
   const brandsData = await getAllBrands(6);
-  const productsData = await getAllProducts(6);
+  const productsData = await getAllProducts({ limit: 6 });
   const brandBannersData = await getBrandBanners();
   const newArrivalProducts = await getNewArrivalProducts();
 
