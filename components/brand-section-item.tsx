@@ -13,7 +13,7 @@ type BrandSectionItemProps = {
 };
 export default function BrandSectionItem({ brand }: BrandSectionItemProps) {
   return (
-    <Card className="w-[290px]">
+    <Card className="w-[290px] mx-auto">
       <CardHeader className="p-0">
         <img
           src={brand.imageUrl!}
