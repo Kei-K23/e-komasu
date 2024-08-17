@@ -24,15 +24,14 @@ export default function Header() {
           <FcShop className="size-10" />
           <span className="hidden md:block text-xl font-bold">Komasu</span>
         </Link>
-        <nav className="hidden lg:flex items-center gap-x-6">
+        <nav className="hidden lg:flex items-center gap-x-3">
           {NAVIGATION_LINKS.map((nav) => (
             <Link
               key={nav.name}
               href={nav.link}
               className={cn(
-                "text-[16px] hover:text-neutral-500 transition",
-                pathname === nav.link &&
-                  "underline underline-offset-4 text-neutral-500"
+                "text-[16px] hover:text-white hover:bg-red-500 transition px-2 py-0.5 rounded-xl",
+                pathname === nav.link && "bg-rose-500 text-white transition"
               )}
             >
               {nav.name}

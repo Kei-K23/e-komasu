@@ -7,7 +7,7 @@ import {
 import { PiTShirt } from "react-icons/pi";
 import { ImHeadphones } from "react-icons/im";
 import { FaComputer } from "react-icons/fa6";
-import { BsSmartwatch } from "react-icons/bs";
+import { BsSmartwatch, BsTv } from "react-icons/bs";
 import { IoWatchSharp } from "react-icons/io5";
 import { MdOutlineQuestionMark } from "react-icons/md";
 
@@ -31,6 +31,8 @@ export const getCategoryIcon = (name: string) => {
       return IoWatchSharp;
     case "Watch":
       return BsSmartwatch;
+    case "TV":
+      return BsTv;
     default:
       return MdOutlineQuestionMark;
   }

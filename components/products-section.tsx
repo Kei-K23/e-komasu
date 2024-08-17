@@ -1,9 +1,9 @@
 import { ProductType } from "@/db/schema";
 import React from "react";
-import SectionHeader from "../section-header";
-import { Button } from "../ui/button";
-import { ScrollArea, ScrollBar } from "../ui/scroll-area";
-import ProductSectionItem from "./product-section-item";
+import SectionHeader from "@/components/section-header";
+import { Button } from "@/components/ui/button";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import ProductSectionItem from "@/components/product-section-item";
 
 type ProductsSectionProps = { data: ProductType[] };
 export default function ProductsSection({ data }: ProductsSectionProps) {
@@ -25,6 +25,11 @@ export default function ProductsSection({ data }: ProductsSectionProps) {
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
+      <div className="flex justify-center items-center mt-8">
+        <Button variant={"primary"} className="text-[16px] md:text-lg">
+          View All Products
+        </Button>
+      </div>
     </section>
   );
 }

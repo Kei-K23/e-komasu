@@ -28,21 +28,21 @@ export default function HeroBannerSwiper() {
           <img
             src={"/iphone_banner_slice.jpg"}
             alt="iphone"
-            className="w-full h-[450px]"
+            className="w-full h-[320px] md:h-[380px] lg:h-[450px]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={"/iphone_banner_slice.jpg"}
             alt="iphone"
-            className="w-full h-[450px]"
+            className="w-full h-[320px] md:h-[380px] lg:h-[450px]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={"/iphone_banner_slice.jpg"}
             alt="iphone"
-            className="w-full h-[450px]"
+            className="w-full h-[320px] md:h-[380px] lg:h-[450px]"
           />
         </SwiperSlide>
       </Swiper>

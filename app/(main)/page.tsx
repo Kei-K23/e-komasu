@@ -1,7 +1,7 @@
-import BrandsSection from "@/components/main/brands-section";
-import CategoriesSection from "@/components/main/categories-section";
+import BrandsSection from "@/components/brands-section";
+import CategoriesSection from "@/components/categories-section";
 import NewArrivalSection from "@/components/main/new-arrival-section";
-import ProductsSection from "@/components/main/products-section";
+import ProductsSection from "@/components/products-section";
 import BrandBannerSwiper from "@/components/swipers/brand-banner-swiper";
 import HeroBannerSwiper from "@/components/swipers/hero-banner-swiper";
 import { Separator } from "@/components/ui/separator";

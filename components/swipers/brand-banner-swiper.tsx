@@ -35,7 +35,7 @@ export default function BrandBannerSwiper({
             <img
               src={banner.bannerUrl!}
               alt={`Banner image ${index}`}
-              className="w-full h-[450px] rounded-lg"
+              className="w-full h-[380px] lg:h-[450px] rounded-lg"
             />
           </SwiperSlide>
         ))}

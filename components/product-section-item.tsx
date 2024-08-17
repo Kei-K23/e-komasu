@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 import { Eye, Heart, ShoppingCart } from "lucide-react";
-import { Badge } from "../ui/badge";
+import { Badge } from "./ui/badge";
 import { isDateInPrevious7Days } from "@/lib/helper";
 
 type ProductSectionItemProps = {

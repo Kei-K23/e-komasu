@@ -14,7 +14,7 @@ export default function Footer() {
             <span className="text-xl font-bold">Komasu</span>
           </Link>
           <p>Find all you wants in one place</p>
-          <div className="mt-3">
+          <div className="mt-3 space-y-2">
             <p className="flex items-center gap-2 text-wrap">
               <MdLocationPin className="min-w-5 min-h-5" /> No. 116, Myintawtar
               Street, Thaeketa, Yangon
